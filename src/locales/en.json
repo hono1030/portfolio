@@ -1,0 +1,10 @@
+{
+  "layout": {
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "name": "Honoka Noguchi"
+  }
+}
