@@ -2,6 +2,7 @@
   "layout": {
     "home": "Home",
     "projects": "Projects",
+    "open-source": "Open Source",
     "contact": "Contact"
   },
   "home": {

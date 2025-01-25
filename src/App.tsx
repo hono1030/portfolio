@@ -1,4 +1,6 @@
 import "./App.css";
+import mugi_img from "./assets/mugi.png";
+import discover_japan_img from "./assets/discover-japan.png";
 import { useTranslation } from "react-i18next";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
@@ -16,7 +18,7 @@ import {
 
 const lngs = {
   en: { nativeName: "English" },
-  ja: { nativeName: "Japanese" },
+  ja: { nativeName: "日本語" },
 };
 
 const theme = createTheme({
@@ -40,7 +42,7 @@ const projects = [
   {
     name: "Mugi",
     description: "A bilingual pet sitting platform.",
-    image: "/mugi.png",
+    image: mugi_img,
     liveDemo: "https://mugi.com",
     github: "https://github.com/mugi",
     details:
@@ -50,7 +52,7 @@ const projects = [
   {
     name: "Discover Japan",
     description: "Travel app for hidden destinations.",
-    image: "/discover-japan.png",
+    image: discover_japan_img,
     liveDemo: "https://discoverjapan.com",
     github: "https://github.com/discover-japan",
     details:
@@ -69,16 +71,16 @@ function App() {
         <div className="logo">Honoka</div>
         <ul>
           <li>
-            <a href="#home">Home</a>
+            <a href="#home">{t("layout.home")}</a>
           </li>
           <li>
-            <a href="#projects">Projects</a>
+            <a href="#projects">{t("layout.projects")}</a>
           </li>
           <li>
-            <a href="#opensource">Open Source</a>
+            <a href="#opensource">{t("layout.open-source")}</a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a href="#contact">{t("layout.contact")}</a>
           </li>
         </ul>
         <div className="locale">
