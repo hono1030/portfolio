@@ -5,6 +5,8 @@
     "contact": "Contact"
   },
   "home": {
-    "name": "Honoka Noguchi"
+    "name": "Honoka Noguchi",
+    "engineer": "Software Engineer | Crafting Seamless User Interfaces",
+    "introduction": "I love building user frenindly website."
   }
 }

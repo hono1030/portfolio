@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import "../style/Layout.css";
 
 const lngs = {
   en: { nativeName: "English" },
@@ -10,8 +11,9 @@ export default function Layout() {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <nav>
-        <ul>
+      <nav className="navbar">
+        <div className="logo">Honoka</div>
+        <div className="menu">
           <li>
             <Link to="/">{t("layout.home")}</Link>
           </li>
@@ -21,8 +23,8 @@ export default function Layout() {
           <li>
             <Link to="contact">{t("layout.contact")}</Link>
           </li>
-        </ul>
-        <div>
+        </div>
+        <div className="locale">
           {Object.keys(lngs).map((lng) => (
             <button
               type="submit"
