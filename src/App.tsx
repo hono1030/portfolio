@@ -6,6 +6,7 @@ import discover_japan_img from "./assets/discover-japan.png";
 import { useTranslation } from "react-i18next";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
+  Avatar,
   CssBaseline,
   Box,
   Typography,
@@ -41,7 +42,7 @@ const theme = createTheme({
       primary: "#333333",
     },
     background: {
-      default: "#f5f5f5",
+      default: "#ffffff",
     },
   },
   typography: {
@@ -129,41 +130,68 @@ function App() {
       <header className="header" id="home">
         <h1>{t("home.name")}</h1>
         <h2>{t("home.engineer")}</h2>
-
         <div>
           <a
             href="https://www.linkedin.com/in/honoka-noguchi/"
             rel="noopener noreferrer"
           >
-            <LinkedInIcon color="primary" />
+            <LinkedInIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
           </a>
           <a href="https://github.com/hono1030" rel="noopener noreferrer">
-            <GitHubIcon color="primary" />
+            <GitHubIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
           </a>
         </div>
       </header>
 
-      {/* About */}
-      <Container maxWidth="lg" className="about-section" id="about">
-        <h2 className="section-title">About me</h2>
-        <div className="container">
-          <img src={profileImage} alt="Thumbnail" />
-          <div>
-            <p>
-              I love building user frenindly website. Explore my projects,
-              skills, and professional journey.
-            </p>
-            <p>
-              <strong>My skills: </strong>
-              TypeScript | React | Vue.js | Node.js | Python | PostgreSQL | HTML
-              | CSS
-            </p>
-          </div>
-        </div>
+      {/* About Me Section */}
+      <Container
+        maxWidth="md"
+        className="about-me-section"
+        style={{
+          margin: "2rem auto",
+          display: "flex",
+          alignItems: "center",
+          gap: "2rem",
+        }}
+      >
+        <Avatar
+          alt="Honoka Noguchi"
+          src={profileImage}
+          sx={{
+            width: 150,
+            height: 150,
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+          }}
+        />
+        <Box>
+          <Typography variant="h4" gutterBottom>
+            About Me
+          </Typography>
+          <Typography variant="body1">
+            Hi, I’m Honoka, a frontend engineer with a background in sales and
+            business development. My passion for solving problems and creating
+            impactful digital experiences led me to transition into software
+            development. I thrive on building intuitive, user-friendly
+            applications that make a difference. Explore my projects, skills,
+            and professional journey.
+          </Typography>
+          <Typography variant="body1" gutterBottom sx={{ mt: 1.5 }}>
+            <strong>Technologies:</strong> TypeScript | React | Vue.js | Node.js
+            | Python | PostgreSQL | HTML | CSS
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            <strong>Languages:</strong> English: Business level, Japanese:
+            Native
+          </Typography>
+        </Box>
       </Container>
 
       {/* Projects Section */}
-      <Container maxWidth="lg" className="projects-section" id="projects">
+      <Container
+        maxWidth="lg"
+        className="section-container projects-section"
+        id="projects"
+      >
         <h2 className="section-title">Projects</h2>
         <Grid container spacing={4}>
           {projects.map((project) => (
@@ -282,26 +310,34 @@ function App() {
       </Dialog>
 
       {/* Open Source Contributions */}
-      <Container maxWidth="lg" className="opensource-section" id="opensource">
+      <Container
+        maxWidth="lg"
+        className="section-container opensource-section"
+        id="opensource"
+      >
         <h2 className="section-title">Open Source Contributions</h2>
       </Container>
 
       {/* Contact */}
-      <Container maxWidth="lg" className="contact-section" id="contact">
+      <Container
+        maxWidth="lg"
+        className="section-container contact-section"
+        id="contact"
+      >
         <h2 className="section-title">Contact</h2>
 
         <div>
-          <EmailIcon color="primary" />
+          <EmailIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
           <span>honoka.n1030@gmail.com</span>
         </div>
         <a
           href="https://www.linkedin.com/in/honoka-noguchi/"
           rel="noopener noreferrer"
         >
-          <LinkedInIcon color="primary" />
+          <LinkedInIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
         </a>
         <a href="https://github.com/hono1030" rel="noopener noreferrer">
-          <GitHubIcon color="primary" />
+          <GitHubIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
         </a>
       </Container>
 

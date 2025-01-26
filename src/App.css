@@ -33,6 +33,7 @@ body {
 
 .nav-bar ul li {
   display: inline-block;
+  font-weight: bold;
 }
 
 .nav-bar ul li a {
@@ -54,6 +55,7 @@ body {
 .nav-bar .locale button {
   background-color: white;
   border: 1px solid white;
+  font-weight: bold;
   color: #ff8965;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
@@ -72,7 +74,7 @@ body {
 }
 
 .header {
-  padding: 8rem 5rem 4rem 5rem;
+  padding: 7rem 5rem 5rem 5rem;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -83,54 +85,41 @@ body {
   margin: 0;
 }
 
-.header p {
-  font-size: 1.2rem;
-  margin: 0.5rem 0 0;
+.header h2 {
+  font-size: 1.6rem;
+  margin: 1rem;
 }
 
+.section-container {
+  padding: 4rem 5rem;
+}
 .section-title {
   font-size: 3.2rem;
 }
 
-.about-section {
-  padding: 4rem 5rem;
-  background-color: #f5f5f5;
-}
-
-.about-section .container {
+/* .about-section .container {
   display: flex;
 }
 
 .about-section img {
   width: 20rem;
+  height: 20rem;
   margin-right: 5rem;
 }
 
 .about-section p {
   font-size: 1rem;
   margin-bottom: 2rem;
-}
+} */
 
-.skills-section {
-  padding: 4rem 5rem;
-}
-
-.projects-section {
-  padding: 4rem 5rem;
-}
-
-.opensource-section {
-  padding: 4rem 5rem;
-}
-
-.footer {
+/* .footer {
   bottom: 0;
   background-color: #333333;
   color: white;
   text-align: center;
   padding: 1rem 0;
   height: 200px;
-}
+} */
 
 /* .logo {
   height: 6em;
