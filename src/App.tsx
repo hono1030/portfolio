@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import profileImage from "./assets/notion-avatar-1737895410401.png";
 import mugi_img from "./assets/mugi.png";
 import discover_japan_img from "./assets/discover-japan.png";
 import { useTranslation } from "react-i18next";
@@ -22,6 +23,9 @@ import {
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 
 const lngs = {
   en: { nativeName: "English" },
@@ -125,41 +129,38 @@ function App() {
       <header className="header" id="home">
         <h1>{t("home.name")}</h1>
         <h2>{t("home.engineer")}</h2>
-        <p>{t("home.introduction")}</p>
+
+        <div>
+          <a
+            href="https://www.linkedin.com/in/honoka-noguchi/"
+            rel="noopener noreferrer"
+          >
+            <LinkedInIcon color="primary" />
+          </a>
+          <a href="https://github.com/hono1030" rel="noopener noreferrer">
+            <GitHubIcon color="primary" />
+          </a>
+        </div>
       </header>
 
       {/* About */}
-      <Container maxWidth="md" className="about-section">
-        <h2>Welcome to My Portfolio</h2>
-        <p>Explore my projects, skills, and professional journey.</p>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          style={{ marginTop: "1rem" }}
-        >
-          View Projects
-        </Button>
-      </Container>
-
-      {/* Skills Section */}
-      {/* <section className="skills-section" id="skills">
-        <h2 className="section-title">Skills</h2>
-        <div className="skills-grid">
-          {[
-            "React",
-            "TypeScript",
-            "Material UI",
-            "Node.js",
-            "FastAPI",
-            "PostgreSQL",
-          ].map((skill) => (
-            <div className="skill-card" key={skill}>
-              {skill}
-            </div>
-          ))}
+      <Container maxWidth="lg" className="about-section" id="about">
+        <h2 className="section-title">About me</h2>
+        <div className="container">
+          <img src={profileImage} alt="Thumbnail" />
+          <div>
+            <p>
+              I love building user frenindly website. Explore my projects,
+              skills, and professional journey.
+            </p>
+            <p>
+              <strong>My skills: </strong>
+              TypeScript | React | Vue.js | Node.js | Python | PostgreSQL | HTML
+              | CSS
+            </p>
+          </div>
         </div>
-      </section> */}
+      </Container>
 
       {/* Projects Section */}
       <Container maxWidth="lg" className="projects-section" id="projects">
@@ -199,7 +200,7 @@ function App() {
       </Container>
 
       {/* Project Details Modal */}
-      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
+      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="lg">
         {selectedProject && (
           <>
             <DialogTitle>
@@ -285,10 +286,35 @@ function App() {
         <h2 className="section-title">Open Source Contributions</h2>
       </Container>
 
+      {/* Contact */}
+      <Container maxWidth="lg" className="contact-section" id="contact">
+        <h2 className="section-title">Contact</h2>
+
+        <div>
+          <EmailIcon color="primary" />
+          <span>honoka.n1030@gmail.com</span>
+        </div>
+        <a
+          href="https://www.linkedin.com/in/honoka-noguchi/"
+          rel="noopener noreferrer"
+        >
+          <LinkedInIcon color="primary" />
+        </a>
+        <a href="https://github.com/hono1030" rel="noopener noreferrer">
+          <GitHubIcon color="primary" />
+        </a>
+      </Container>
+
       {/* Footer */}
-      <footer className="footer" id="conatct">
-        <p>{new Date().getFullYear()} Honoka Noguchi. All Rights Reserved.</p>
-      </footer>
+      {/* <footer className="footer" id="conatct">
+        <div>
+          <h3>Honoka Noguchi</h3>
+        </div>
+        <div>
+          <p>Links</p>
+        </div>
+        <div></div>
+      </footer> */}
     </ThemeProvider>
   );
 }
