@@ -204,34 +204,46 @@ function App() {
         maxWidth="lg"
         className="section-container projects-section"
         id="projects"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 2,
+          py: 4,
+        }}
       >
         <h2 className="section-title">Projects</h2>
         <Grid container spacing={4}>
           {projects.map((project) => (
             <Grid item xs={12} sm={6} md={4} key={project.name}>
-              <Card>
+              <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="194"
                   image={project.images[0]}
                   alt={project.name}
+                  sx={{
+                    objectFit: "cover",
+                    objectPosition: "top",
+                  }}
                 ></CardMedia>
                 <CardContent>
-                  <Typography variant="h5" component="div">
+                  <Typography variant="h6" component="div">
                     {project.name}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {project.description}
-                  </Typography>
+                  {/* <Typography variant="body2" color="text.secondary">
+                    {project.name}
+                  </Typography> */}
                 </CardContent>
                 <CardActions>
                   <Button
                     size="small"
                     variant="contained"
                     color="primary"
+                    disableElevation
                     onClick={() => handleOpen(project)}
                   >
-                    Learn More
+                    View project
                   </Button>
                 </CardActions>
               </Card>
@@ -359,6 +371,13 @@ function App() {
         maxWidth="lg"
         className="section-container opensource-section"
         id="opensource"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 2,
+          py: 4,
+        }}
       >
         <h2 className="section-title">Open Source Contributions</h2>
       </Container>
@@ -368,22 +387,42 @@ function App() {
         maxWidth="lg"
         className="section-container contact-section"
         id="contact"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 2,
+          py: 4,
+        }}
       >
         <h2 className="section-title">Contact</h2>
-
-        <div>
-          <EmailIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
-          <span>honoka.n1030@gmail.com</span>
-        </div>
-        <a
-          href="https://www.linkedin.com/in/honoka-noguchi/"
-          rel="noopener noreferrer"
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 4,
+          }}
         >
-          <LinkedInIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
-        </a>
-        <a href="https://github.com/hono1030" rel="noopener noreferrer">
-          <GitHubIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
-        </a>
+          <a
+            href="https://www.linkedin.com/in/honoka-noguchi/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LinkedInIcon color="primary" fontSize="large" />
+          </a>
+          <a
+            href="https://github.com/hono1030"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GitHubIcon color="primary" fontSize="large" />
+          </a>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <EmailIcon color="primary" fontSize="large" />
+            <span>honoka.n1030@gmail.com</span>
+          </Box>
+        </Box>
       </Container>
 
       {/* Footer */}
