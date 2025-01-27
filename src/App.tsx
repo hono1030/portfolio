@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import { Project } from "./types/types";
 import profileImage from "./assets/notion-avatar-1737895410401.png";
 import mugi_img from "./assets/mugi.png";
 import discover_japan_img from "./assets/discover-japan.png";
@@ -20,7 +21,6 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogActions,
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -30,7 +30,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import LanguageIcon from "@mui/icons-material/Language";
 
-const lngs = {
+const lngs: Record<string, { nativeName: string }> = {
   en: { nativeName: "English" },
   ja: { nativeName: "日本語" },
 };
@@ -52,7 +52,7 @@ const theme = createTheme({
   },
 });
 
-const projects = [
+const projects: Project[] = [
   {
     name: "Mugi : A bilingual pet sitting platform",
     description:
@@ -82,6 +82,22 @@ const projects = [
       "TypeScript, React, Node.js, Express, PostgreSQL, OpenAI API, AWS S3, Heroku",
     images: [discover_japan_img, mugi_img],
     site: "https://solomvp-discoverjp-frontend.netlify.app/",
+    demo: "",
+    github: "https://github.com/hono1030/soloMVP-frontend",
+  },
+  {
+    name: "Discover Japan : Travel app for hidden destinations",
+    description:
+      "This is my solo project. I developed Discover Japan, a travel app designed to promote sustainable tourism by encouraging users to explore hidden gems across Japan. The app offers personalized recommendations based on user preferences, a clickable map where users can post and view pictures, and a visual representation of visit rates for each prefecture to balance tourism flow.",
+    whatIDid: [
+      "Built a dynamic query builder and interactive SVG map to visualize tourism density using CSV data.",
+      "Integrated OpenAI API for personalized travel recommendations with optimized prompt engineering.",
+      "Developed a system allowing users to upload, retrieve, and view images seamlessly, using AWS S3 with presigned URLs.",
+    ],
+    techStack:
+      "TypeScript, React, Node.js, Express, PostgreSQL, OpenAI API, AWS S3, Heroku",
+    images: [discover_japan_img, mugi_img],
+    site: "",
     github: "https://github.com/hono1030/soloMVP-frontend",
   },
 ];
@@ -89,11 +105,11 @@ const projects = [
 function App() {
   const { t, i18n } = useTranslation();
 
-  const [open, setOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [featuredImage, setFeaturedImage] = useState(null);
+  const [open, setOpen] = useState<boolean>(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [featuredImage, setFeaturedImage] = useState<string | null>(null);
 
-  const handleOpen = (project) => {
+  const handleOpen = (project: Project) => {
     setSelectedProject(project);
     setFeaturedImage(project.images[0]);
     setOpen(true);
@@ -351,15 +367,17 @@ function App() {
                     />
                   ))}
                 </div>
-                <img
-                  src={featuredImage}
-                  alt="Featured"
-                  style={{
-                    width: "70%",
-                    height: "auto",
-                    marginBottom: "1rem",
-                  }}
-                />
+                {featuredImage && (
+                  <img
+                    src={featuredImage}
+                    alt="Featured"
+                    style={{
+                      width: "70%",
+                      height: "auto",
+                      marginBottom: "1rem",
+                    }}
+                  />
+                )}
               </div>
             </DialogContent>
           </div>
@@ -383,7 +401,7 @@ function App() {
       </Container>
 
       {/* Contact */}
-      <Container
+      {/* <Container
         maxWidth="lg"
         className="section-container contact-section"
         id="contact"
@@ -423,18 +441,39 @@ function App() {
             <span>honoka.n1030@gmail.com</span>
           </Box>
         </Box>
-      </Container>
+      </Container> */}
 
       {/* Footer */}
-      {/* <footer className="footer" id="conatct">
-        <div>
-          <h3>Honoka Noguchi</h3>
-        </div>
-        <div>
-          <p>Links</p>
-        </div>
-        <div></div>
-      </footer> */}
+      <footer className="footer" id="contact">
+        <h3>Contact</h3>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
+          <a
+            href="https://www.linkedin.com/in/honoka-noguchi/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LinkedInIcon color="primary" fontSize="large" />
+          </a>
+          <a
+            href="https://github.com/hono1030"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GitHubIcon color="primary" fontSize="large" />
+          </a>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <EmailIcon color="primary" fontSize="large" />
+            <span>honoka.n1030@gmail.com</span>
+          </Box>
+        </Box>
+      </footer>
     </ThemeProvider>
   );
 }
