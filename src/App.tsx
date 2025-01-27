@@ -85,21 +85,6 @@ const projects: Project[] = [
     demo: "",
     github: "https://github.com/hono1030/soloMVP-frontend",
   },
-  {
-    name: "Discover Japan : Travel app for hidden destinations",
-    description:
-      "This is my solo project. I developed Discover Japan, a travel app designed to promote sustainable tourism by encouraging users to explore hidden gems across Japan. The app offers personalized recommendations based on user preferences, a clickable map where users can post and view pictures, and a visual representation of visit rates for each prefecture to balance tourism flow.",
-    whatIDid: [
-      "Built a dynamic query builder and interactive SVG map to visualize tourism density using CSV data.",
-      "Integrated OpenAI API for personalized travel recommendations with optimized prompt engineering.",
-      "Developed a system allowing users to upload, retrieve, and view images seamlessly, using AWS S3 with presigned URLs.",
-    ],
-    techStack:
-      "TypeScript, React, Node.js, Express, PostgreSQL, OpenAI API, AWS S3, Heroku",
-    images: [discover_japan_img, mugi_img],
-    site: "",
-    github: "https://github.com/hono1030/soloMVP-frontend",
-  },
 ];
 
 function App() {
@@ -196,21 +181,14 @@ function App() {
           <Typography variant="h4" gutterBottom>
             About Me
           </Typography>
-          <Typography variant="body1">
-            Hi, I’m Honoka, a frontend engineer with a background in sales and
-            business development. My passion for solving problems and creating
-            impactful digital experiences led me to transition into software
-            development. I thrive on building intuitive, user-friendly
-            applications that make a difference. Explore my projects, skills,
-            and professional journey.
-          </Typography>
+          <Typography variant="body1">{t("about-me.introduction")}</Typography>
           <Typography variant="body1" gutterBottom sx={{ mt: 1.5 }}>
-            <strong>Technologies:</strong> TypeScript | React | Vue.js | Node.js
-            | Python | PostgreSQL | HTML | CSS
+            <strong>{t("about-me.technologies")}</strong>{" "}
+            {t("about-me.technologies-list")}
           </Typography>
           <Typography variant="body1" gutterBottom>
-            <strong>Languages:</strong> English: Business level, Japanese:
-            Native
+            <strong>{t("about-me.languages")}</strong>{" "}
+            {t("about-me.language-level")}
           </Typography>
         </Box>
       </Container>
@@ -310,7 +288,8 @@ function App() {
                   sx={{ my: 2 }}
                   gutterBottom
                 >
-                  <strong>Tech Stack:</strong> {selectedProject.techStack}
+                  <strong>{t("project-details.techstack")}</strong>{" "}
+                  {selectedProject.techStack}
                 </Typography>
                 {selectedProject.site && (
                   <Button
