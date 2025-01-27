@@ -27,6 +27,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import LanguageIcon from "@mui/icons-material/Language";
 
 const lngs = {
   en: { nativeName: "English" },
@@ -52,24 +54,35 @@ const theme = createTheme({
 
 const projects = [
   {
-    name: "Mugi",
-    description: "A bilingual pet sitting platform.",
-    whatIDid:
-      "Built a responsive interface, integrated localization, and connected to a FastAPI backend.",
-    techStack: "React, TypeScript, FastAPI, PostgreSQL",
+    name: "Mugi : A bilingual pet sitting platform",
+    description:
+      "I collaborated with three team members on Mugi, a bilingual platform connecting pet owners with trusted sitters. My primary focus was on the frontend, where I led efforts to design and implement scalable and user-friendly interfaces. I also contributed to enhancing accessibility by implementing localization features.",
+    whatIDid: [
+      "Designed UI prototypes in Figma to refine user flows and improve usability.",
+      "Built responsive, user-focused interfaces with React and TypeScript, integrating seamlessly with backend APIs.",
+      "Implemented bilingual (Japanese/English) localization using i18next, expanding accessibility.",
+    ],
+    techStack:
+      "TypeScript, React, Tailwind CSS, Figma, i18next, Python, FastAPI, PostgreSQL, Firebase, Docker, Render",
     images: [mugi_img, discover_japan_img],
-    liveDemo: "https://mugi.com",
-    github: "https://github.com/mugi",
+    site: "https://mugi.pet/",
+    demo: "https://mugi.com",
+    github: "https://github.com/cc-pet-sitter/frontend",
   },
   {
-    name: "Discover Japan",
-    description: "Travel app for hidden destinations.",
-    whatIDid:
-      "Developed interactive SVG maps, integrated OpenAI API, and enabled secure image uploads.",
-    techStack: "React, TypeScript, OpenAI API, AWS S3, Node.js",
+    name: "Discover Japan : Travel app for hidden destinations",
+    description:
+      "This is my solo project. I developed Discover Japan, a travel app designed to promote sustainable tourism by encouraging users to explore hidden gems across Japan. The app offers personalized recommendations based on user preferences, a clickable map where users can post and view pictures, and a visual representation of visit rates for each prefecture to balance tourism flow.",
+    whatIDid: [
+      "Built a dynamic query builder and interactive SVG map to visualize tourism density using CSV data.",
+      "Integrated OpenAI API for personalized travel recommendations with optimized prompt engineering.",
+      "Developed a system allowing users to upload, retrieve, and view images seamlessly, using AWS S3 with presigned URLs.",
+    ],
+    techStack:
+      "TypeScript, React, Node.js, Express, PostgreSQL, OpenAI API, AWS S3, Heroku",
     images: [discover_japan_img, mugi_img],
-    liveDemo: "https://discoverjapan.com",
-    github: "https://github.com/discover-japan",
+    site: "https://solomvp-discoverjp-frontend.netlify.app/",
+    github: "https://github.com/hono1030/soloMVP-frontend",
   },
 ];
 
@@ -195,7 +208,7 @@ function App() {
         <h2 className="section-title">Projects</h2>
         <Grid container spacing={4}>
           {projects.map((project) => (
-            <Grid item xs={12} sm={6} md={4} ket={project.name}>
+            <Grid item xs={12} sm={6} md={4} key={project.name}>
               <Card>
                 <CardMedia
                   component="img"
@@ -228,52 +241,93 @@ function App() {
       </Container>
 
       {/* Project Details Modal */}
-      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="lg">
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        fullWidth
+        maxWidth="lg"
+        className="project-details"
+      >
         {selectedProject && (
-          <>
-            <DialogTitle>
+          <div className="container">
+            <DialogTitle variant="h4">
               {selectedProject.name}
               <IconButton
                 aria-label="close"
                 onClick={handleClose}
                 sx={(theme) => ({
                   position: "absolute",
-                  right: 8,
-                  top: 8,
+                  right: 12,
+                  top: 12,
                   color: theme.palette.grey[500],
                 })}
               >
                 <CloseIcon />
               </IconButton>
             </DialogTitle>
-            <DialogContent>
-              <Typography variant="body1" gutterBottom>
-                {selectedProject.description}
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                {selectedProject.whatIDid}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" gutterBottom>
-                <strong>Tech Stack:</strong> {selectedProject.techStack}
-              </Typography>
-              <Box textAlign="center">
-                <img
-                  src={featuredImage}
-                  alt="Featured"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    marginBottom: "1rem",
-                  }}
-                />
-                <Box display="flex" justifyContent="center" gap="1rem">
+            <DialogContent dividers className="content-container">
+              <div className="discription-container">
+                <Typography variant="body1" sx={{ my: 2 }} gutterBottom>
+                  {selectedProject.description}
+                </Typography>
+                <ul>
+                  {selectedProject.whatIDid?.map((list, index) => (
+                    <li key={index}>{list}</li>
+                  ))}
+                </ul>
+
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{ my: 2 }}
+                  gutterBottom
+                >
+                  <strong>Tech Stack:</strong> {selectedProject.techStack}
+                </Typography>
+                {selectedProject.site && (
+                  <Button
+                    href={selectedProject.site}
+                    target="_blank"
+                    color="primary"
+                    sx={{ mb: 3, mr: 3, pl: 0 }}
+                  >
+                    <LanguageIcon color="primary" sx={{ mr: 0.5 }} />
+                    Site
+                  </Button>
+                )}
+
+                {selectedProject.demo && (
+                  <Button
+                    href={selectedProject.demo}
+                    target="_blank"
+                    color="primary"
+                    sx={{ mb: 3, mr: 3, pl: 0 }}
+                  >
+                    <OndemandVideoIcon color="primary" sx={{ mr: 0.5 }} />
+                    Demo
+                  </Button>
+                )}
+                {selectedProject.github && (
+                  <Button
+                    href={selectedProject.github}
+                    target="_blank"
+                    color="primary"
+                    sx={{ mb: 3, mr: 3, pl: 0 }}
+                  >
+                    <GitHubIcon color="primary" sx={{ mr: 0.5 }} />
+                    GitHub
+                  </Button>
+                )}
+              </div>
+              <div className="image-container">
+                <div className="image-gallery">
                   {selectedProject.images.map((image) => (
                     <img
                       key={image}
                       src={image}
                       alt="Thumbnail"
                       style={{
-                        width: "100px",
+                        width: "180px",
                         height: "auto",
                         cursor: "pointer",
                         border:
@@ -284,28 +338,19 @@ function App() {
                       onClick={() => setFeaturedImage(image)}
                     />
                   ))}
-                </Box>
-              </Box>
+                </div>
+                <img
+                  src={featuredImage}
+                  alt="Featured"
+                  style={{
+                    width: "70%",
+                    height: "auto",
+                    marginBottom: "1rem",
+                  }}
+                />
+              </div>
             </DialogContent>
-            <DialogActions>
-              <Button
-                href={selectedProject.liveDemo}
-                target="_blank"
-                variant="contained"
-                color="primary"
-              >
-                Live Demo
-              </Button>
-              <Button
-                href={selectedProject.github}
-                target="_blank"
-                variant="outlined"
-                color="primary"
-              >
-                GitHub Repo
-              </Button>
-            </DialogActions>
-          </>
+          </div>
         )}
       </Dialog>
 

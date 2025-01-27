@@ -97,6 +97,23 @@ body {
   font-size: 3.2rem;
 }
 
+.project-details .container {
+  padding: 1rem 4rem;
+}
+
+.project-details .discription-container {
+  flex: 1;
+}
+
+.project-details .image-container {
+  flex: 1;
+}
+
+.project-details .image-gallery {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
 /* .about-section .container {
   display: flex;
 }
