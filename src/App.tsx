@@ -70,7 +70,7 @@ const projects: Project[] = [
       "TypeScript, React, Tailwind CSS, Figma, i18next, Python, FastAPI, PostgreSQL, Firebase, Docker, Render",
     images: [mugi_img, discover_japan_img],
     site: "https://mugi.pet/",
-    demo: "https://mugi.com",
+    demo: "https://www.youtube.com/watch?v=nf6tw-EHCgg",
     github: "https://github.com/cc-pet-sitter/frontend",
   },
   {
@@ -382,6 +382,17 @@ function App() {
                     Demo
                   </Button>
                 )}
+                {/* <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/nf6tw-EHCgg"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe> */}
+
                 {selectedProject.github && (
                   <Button
                     href={selectedProject.github}
