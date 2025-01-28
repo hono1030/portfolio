@@ -5,11 +5,12 @@ import profileImage from "./assets/notion-avatar-1737895410401.png";
 import mugi_img from "./assets/mugi.png";
 import discover_japan_img from "./assets/discover-japan.png";
 import { useTranslation } from "react-i18next";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import {
   Avatar,
-  CssBaseline,
   Box,
+  CssBaseline,
   Typography,
   Button,
   Grid,
@@ -49,6 +50,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "'Roboto', sans-serif",
+    h1: { fontSize: "3rem", fontWeight: 700 },
+    // h2: { fontSize: "1.5rem", color: "#555" },
+    body1: { fontSize: "1rem", lineHeight: 1.6 },
   },
 });
 
@@ -94,6 +98,9 @@ function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [featuredImage, setFeaturedImage] = useState<string | null>(null);
 
+  const themForMedia = useTheme();
+  const isMobile = useMediaQuery(themForMedia.breakpoints.down("sm"));
+
   const handleOpen = (project: Project) => {
     setSelectedProject(project);
     setFeaturedImage(project.images[0]);
@@ -111,21 +118,23 @@ function App() {
       <CssBaseline />
       {/* Navigation */}
       <nav className="nav-bar">
-        <div className="logo">Honoka</div>
-        <ul>
-          <li>
-            <a href="#home">{t("layout.home")}</a>
-          </li>
-          <li>
-            <a href="#projects">{t("layout.projects")}</a>
-          </li>
-          <li>
-            <a href="#opensource">{t("layout.open-source")}</a>
-          </li>
-          <li>
-            <a href="#contact">{t("layout.contact")}</a>
-          </li>
-        </ul>
+        <div className="logo"></div>
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          <ul>
+            <li>
+              <a href="#home">{t("layout.home")}</a>
+            </li>
+            <li>
+              <a href="#projects">{t("layout.projects")}</a>
+            </li>
+            <li>
+              <a href="#opensource">{t("layout.open-source")}</a>
+            </li>
+            <li>
+              <a href="#contact">{t("layout.contact")}</a>
+            </li>
+          </ul>
+        </Box>
         <div className="locale">
           {Object.keys(lngs).map((lng) => (
             <button
@@ -142,8 +151,27 @@ function App() {
 
       {/* Header */}
       <header className="header" id="home">
-        <h1>{t("home.name")}</h1>
-        <h2>{t("home.engineer")}</h2>
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: { xs: "2rem", md: "3rem" },
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
+          gutterBottom
+        >
+          {t("home.name")}
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: { xs: "1.2rem", md: "1.5rem" },
+            textAlign: "center",
+            color: "text.secondary",
+          }}
+        >
+          {t("home.engineer")}
+        </Typography>
         <div>
           <a
             href="https://www.linkedin.com/in/honoka-noguchi/"
@@ -161,10 +189,12 @@ function App() {
       <Container
         maxWidth="md"
         className="about-me-section"
-        style={{
+        sx={{
+          flexDirection: { xs: "column", md: "row" },
           margin: "2rem auto",
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
           gap: "2rem",
         }}
       >
@@ -178,10 +208,18 @@ function App() {
           }}
         />
         <Box>
-          <Typography variant="h4" gutterBottom>
+          <Typography
+            variant="h4"
+            sx={{
+              textAlign: { xs: "center", md: "left" },
+            }}
+            gutterBottom
+          >
             About Me
           </Typography>
-          <Typography variant="body1">{t("about-me.introduction")}</Typography>
+          <Typography variant="body1" sx={{ my: 2 }}>
+            {t("about-me.introduction")}
+          </Typography>
           <Typography variant="body1" gutterBottom sx={{ mt: 1.5 }}>
             <strong>{t("about-me.technologies")}</strong>{" "}
             {t("about-me.technologies-list")}
@@ -206,11 +244,29 @@ function App() {
           py: 4,
         }}
       >
-        <h2 className="section-title">Projects</h2>
-        <Grid container spacing={4}>
+        <Typography
+          variant="h3"
+          className="section-title"
+          sx={{
+            fontSize: { xs: "2rem", md: "3rem" },
+            my: 6,
+            fontWeight: 600,
+          }}
+        >
+          Projects
+        </Typography>
+        <Grid
+          container
+          spacing={4}
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           {projects.map((project) => (
             <Grid item xs={12} sm={6} md={4} key={project.name}>
-              <Card sx={{ maxWidth: 345 }}>
+              <Card sx={{ maxWidth: 345, margin: "0 auto" }}>
                 <CardMedia
                   component="img"
                   height="194"
@@ -229,7 +285,13 @@ function App() {
                     {project.name}
                   </Typography> */}
                 </CardContent>
-                <CardActions>
+                <CardActions
+                  sx={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    textAlign: "center",
+                  }}
+                >
                   <Button
                     size="small"
                     variant="contained"
@@ -251,12 +313,18 @@ function App() {
         open={open}
         onClose={handleClose}
         fullWidth
+        fullScreen={isMobile}
         maxWidth="lg"
         className="project-details"
       >
         {selectedProject && (
           <div className="container">
-            <DialogTitle variant="h4">
+            <DialogTitle
+              variant="h4"
+              sx={{
+                fontSize: { xs: "1.7rem", md: "1.9rem" },
+              }}
+            >
               {selectedProject.name}
               <IconButton
                 aria-label="close"
@@ -348,13 +416,9 @@ function App() {
                 </div>
                 {featuredImage && (
                   <img
+                    className="featuredImage"
                     src={featuredImage}
                     alt="Featured"
-                    style={{
-                      width: "70%",
-                      height: "auto",
-                      marginBottom: "1rem",
-                    }}
                   />
                 )}
               </div>
@@ -376,7 +440,18 @@ function App() {
           py: 4,
         }}
       >
-        <h2 className="section-title">Open Source Contributions</h2>
+        <Typography
+          variant="h3"
+          className="section-title"
+          sx={{
+            my: 6,
+            fontWeight: 600,
+            textAlign: "center",
+            fontSize: { xs: "2rem", md: "3rem" },
+          }}
+        >
+          Open Source
+        </Typography>
       </Container>
 
       {/* Contact */}
@@ -424,30 +499,41 @@ function App() {
 
       {/* Footer */}
       <footer className="footer" id="contact">
-        <h3>Contact</h3>
+        <Typography
+          variant="h6"
+          sx={{
+            my: 2,
+            fontWeight: 600,
+          }}
+        >
+          Contact
+        </Typography>
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             justifyContent: "center",
             alignItems: "center",
-            gap: 4,
+            gap: 2,
           }}
         >
-          <a
-            href="https://www.linkedin.com/in/honoka-noguchi/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedInIcon color="primary" fontSize="large" />
-          </a>
-          <a
-            href="https://github.com/hono1030"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GitHubIcon color="primary" fontSize="large" />
-          </a>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <div>
+            <a
+              href="https://www.linkedin.com/in/honoka-noguchi/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon color="primary" fontSize="large" />
+            </a>
+            <a
+              href="https://github.com/hono1030"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon color="primary" fontSize="large" />
+            </a>
+          </div>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
             <EmailIcon color="primary" fontSize="large" />
             <span>honoka.n1030@gmail.com</span>
           </Box>

@@ -1,3 +1,10 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -11,7 +18,7 @@ body {
   align-items: center;
   justify-content: space-between;
   position: sticky;
-  padding: 1rem 5rem;
+  padding: 1.5rem 5rem;
   top: 0;
   z-index: 1000;
 }
@@ -80,7 +87,7 @@ a:hover svg {
 }
 
 .header {
-  padding: 7rem 5rem 5rem 5rem;
+  margin: 7rem auto;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -99,9 +106,9 @@ a:hover svg {
 .section-container {
   padding: 4rem 5rem;
 }
-.section-title {
+/* .section-title {
   font-size: 3rem;
-}
+} */
 
 .project-details .container {
   padding: 1rem 4rem;
@@ -119,6 +126,12 @@ a:hover svg {
   display: flex;
   gap: 1rem;
   margin-bottom: 2rem;
+}
+
+.project-details .featuredImage {
+  width: 70%;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .contact-section span {
@@ -161,8 +174,106 @@ a:hover svg {
   font-weight: 800;
 }
 
+.footer a {
+  margin: 0 0.8rem;
+}
+
 .footer a:hover svg {
   color: #ffffff;
+}
+
+.footer .link-container {
+  display: "inline-block";
+}
+
+/* mobile view */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .nav-bar {
+    padding: 1rem 2rem;
+  }
+
+  .header {
+    margin: 6rem auto;
+  }
+
+  .header h1 {
+    font-size: 2.4rem;
+  }
+  .header h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-me-section strong {
+    display: block;
+    margin: 0.6rem 0 0.3rem 0;
+  }
+
+  .section-container {
+    padding: 2rem 1rem;
+  }
+
+  .project-details .container {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+
+  .project-details .discription-container,
+  .project-details .image-container {
+    width: 100%;
+  }
+
+  .project-details .image-gallery {
+    justify-content: center;
+  }
+
+  .project-details .featuredImage {
+    width: 110%;
+    margin: 0 -1rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+}
+
+/* ipad view */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .nav-bar {
+    padding: 1rem 3rem;
+  }
+
+  .nav-bar ul {
+    gap: 2rem;
+  }
+
+  .header {
+    padding: 6rem 3rem 4rem 3rem;
+  }
+
+  .header h1 {
+    font-size: 2.6rem;
+  }
+
+  .header h2 {
+    font-size: 1.4rem;
+  }
+
+  /* .section-title {
+    font-size: 2.5rem;
+  } */
+  .project-details .container {
+    padding: 1rem 3rem;
+  }
+
+  .footer {
+    padding: 1.5rem;
+  }
 }
 
 /* .logo {
