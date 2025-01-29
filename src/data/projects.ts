@@ -1,3 +1,4 @@
+import { TFunction } from "i18next";
 import { Project } from "../types/types"; // Ensure you import the Project type
 import mugi_img from "../assets/mugi.png";
 import mugi_1 from "../assets/mugi_1.png";
@@ -9,10 +10,12 @@ import discover_japan_1 from "../assets/discover-japan_1.png";
 import discover_japan_2 from "../assets/discover-japan_2.png";
 import discover_japan_3 from "../assets/discover-japan_3.png";
 import discover_japan_4 from "../assets/discover-japan_4.png";
+import chat_app_1 from "../assets/chat-app_1.png";
+import chat_app_2 from "../assets/chat-app_2.png";
+import chat_app_3 from "../assets/chat-app_3.png";
+import chat_app_4 from "../assets/chat-app_4.png";
 
-export const getProjects = (
-  t: (key: string, options?: any) => string | string[]
-): Project[] => [
+export const getProjects = (t: TFunction): Project[] => [
   {
     name: t("projects.mugi.name"),
     description: t("projects.mugi.description"),
@@ -40,8 +43,20 @@ export const getProjects = (
       discover_japan_4,
     ],
     site: "https://solomvp-discoverjp-frontend.netlify.app/",
-    demo: "",
+    demo: "https://youtu.be/VHZVnwzUWYs",
     github: "https://github.com/hono1030/soloMVP-frontend",
+  },
+  {
+    name: t("projects.chat-app.name"),
+    description: t("projects.chat-app.description"),
+    whatIDid: t("projects.chat-app.whatIDid", {
+      returnObjects: true,
+    }) as string[],
+    techStack: "Python, FastAPI, TypeScript, React, MongoDB",
+    images: [chat_app_2, chat_app_1, chat_app_3, chat_app_4],
+    site: "",
+    demo: "https://youtu.be/u0S5A_oNko4",
+    github: "https://github.com/hono1030/polyglottal-frontend",
   },
 ];
 

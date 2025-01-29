@@ -38,6 +38,16 @@
         "Integrated OpenAI API for personalized travel recommendations with optimized prompt engineering.",
         "Developed a system allowing users to upload, retrieve, and view images seamlessly, using AWS S3 with presigned URLs."
       ]
+    },
+    "chat-app": {
+      "name": "Real-Time Chat Application with WebSocket",
+      "description": "This is a real-time chat application built using FastAPI and WebSockets. It allows users to send and receive messages instantly through persistent WebSocket connections. The app supports multiple users, stores messages in MongoDB, and ensures seamless two-way communication.",
+      "whatIDid": [
+        "Designed and implemented the WebSocket communication layer using FastAPI, enabling real-time messaging.",
+        "Built a responsive chat UI using React and TypeScript for a smooth user experience.",
+        "Integrated MongoDB to store chat history and user data for persistent messaging.",
+        "Implemented user authentication and session management to ensure security and data consistency."
+      ]
     }
   }
 }

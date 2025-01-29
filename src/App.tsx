@@ -232,13 +232,13 @@ function App() {
             textAlign: "center",
           }}
         >
-          {projects.map((project) => (
-            <Grid item xs={12} sm={6} md={4} key={project.name}>
+          {projects.map((project, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
               <Card sx={{ maxWidth: 345, margin: "0 auto" }}>
                 <CardMedia
                   component="img"
                   height="194"
-                  image={project.images[0]}
+                  image={project.images[0] as string}
                   alt={project.name}
                   sx={{
                     objectFit: "cover",
