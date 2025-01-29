@@ -130,7 +130,7 @@ a:hover svg {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
   max-width: 100%;
@@ -142,6 +142,8 @@ a:hover svg {
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .project-details .thumbnail:hover {
@@ -158,6 +160,8 @@ a:hover svg {
   max-height: 480px;
   object-fit: contain;
   margin-bottom: 2rem;
+  border-radius: 2px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .contact-section span {

@@ -1,4 +1,6 @@
+import "../App.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Project } from "../types/types";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import {
@@ -20,7 +22,17 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import LanguageIcon from "@mui/icons-material/Language";
 
-export default function Projects({
+type Props = {
+  projects: Project[];
+  selectedProject: Project | null;
+  featuredImage: string | null;
+  open: boolean;
+  onOpen: (project: Project) => void;
+  onClose: () => void;
+  setFeaturedImage: (image: string) => void;
+};
+
+const Projects: React.FC<Props> = ({
   projects,
   selectedProject,
   featuredImage,
@@ -28,7 +40,7 @@ export default function Projects({
   onOpen,
   onClose,
   setFeaturedImage,
-}) {
+}) => {
   const themForMedia = useTheme();
   const isMobile = useMediaQuery(themForMedia.breakpoints.down("sm"));
   const { t } = useTranslation();
@@ -238,4 +250,6 @@ export default function Projects({
       </Dialog>
     </>
   );
-}
+};
+
+export default Projects;
