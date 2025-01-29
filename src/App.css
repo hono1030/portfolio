@@ -120,18 +120,44 @@ a:hover svg {
 
 .project-details .image-container {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .project-details .image-gallery {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.project-details .thumbnail {
+  max-width: 150px;
+  max-height: 140px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-details .thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.project-details .thumbnail.selected {
+  border: 2px solid #ff8965;
 }
 
 .project-details .featuredImage {
-  width: 70%;
+  width: auto;
   height: auto;
-  margin-bottom: 1rem;
+  max-height: 480px;
+  object-fit: contain;
+  margin-bottom: 2rem;
 }
 
 .contact-section span {
@@ -228,8 +254,13 @@ a:hover svg {
 
   .project-details .image-gallery {
     justify-content: center;
+    gap: 0.8rem;
   }
 
+  .project-details .thumbnail {
+    max-width: 120px;
+    max-height: 100px;
+  }
   .project-details .featuredImage {
     width: 110%;
     margin: 0 -1rem;

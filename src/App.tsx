@@ -3,7 +3,15 @@ import { useState } from "react";
 import { Project } from "./types/types";
 import profileImage from "./assets/notion-avatar-1737895410401.png";
 import mugi_img from "./assets/mugi.png";
+import mugi_1 from "./assets/mugi_1.png";
+import mugi_2 from "./assets/mugi_2.png";
+import mugi_3 from "./assets/mugi_3.png";
+import mugi_4 from "./assets/mugi_4.png";
 import discover_japan_img from "./assets/discover-japan.png";
+import discover_japan_1 from "./assets/discover-japan_1.png";
+import discover_japan_2 from "./assets/discover-japan_2.png";
+import discover_japan_3 from "./assets/discover-japan_3.png";
+import discover_japan_4 from "./assets/discover-japan_4.png";
 import { useTranslation } from "react-i18next";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
@@ -68,7 +76,7 @@ const projects: Project[] = [
     ],
     techStack:
       "TypeScript, React, Tailwind CSS, Figma, i18next, Python, FastAPI, PostgreSQL, Firebase, Docker, Render",
-    images: [mugi_img, discover_japan_img],
+    images: [mugi_img, mugi_1, mugi_2, mugi_3, mugi_4],
     site: "https://mugi.pet/",
     demo: "https://www.youtube.com/watch?v=nf6tw-EHCgg",
     github: "https://github.com/cc-pet-sitter/frontend",
@@ -84,7 +92,13 @@ const projects: Project[] = [
     ],
     techStack:
       "TypeScript, React, Node.js, Express, PostgreSQL, OpenAI API, AWS S3, Heroku",
-    images: [discover_japan_img, mugi_img],
+    images: [
+      discover_japan_img,
+      discover_japan_1,
+      discover_japan_2,
+      discover_japan_3,
+      discover_japan_4,
+    ],
     site: "https://solomvp-discoverjp-frontend.netlify.app/",
     demo: "",
     github: "https://github.com/hono1030/soloMVP-frontend",
@@ -412,10 +426,8 @@ function App() {
                       key={image}
                       src={image}
                       alt="Thumbnail"
+                      className="thumbnail"
                       style={{
-                        width: "180px",
-                        height: "auto",
-                        cursor: "pointer",
                         border:
                           featuredImage === image
                             ? "2px solid #ff8965"
