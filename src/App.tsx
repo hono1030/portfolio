@@ -74,7 +74,7 @@ function App() {
               <a href="#projects">{t("layout.projects")}</a>
             </li>
             <li>
-              <a href="#opensource">{t("layout.open-source")}</a>
+              <a href="#experience">{t("layout.experience")}</a>
             </li>
             <li>
               <a href="#contact">{t("layout.contact")}</a>
@@ -190,11 +190,11 @@ function App() {
         />
       </div>
 
-      {/* Open Source Contributions */}
+      {/* Experience */}
       <Container
         maxWidth="lg"
-        className="section-container opensource-section"
-        id="opensource"
+        className="section-container experience-section"
+        id="experience"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -213,7 +213,7 @@ function App() {
             fontSize: { xs: "2rem", md: "3rem" },
           }}
         >
-          Open Source
+          Experience
         </Typography>
       </Container>
 
