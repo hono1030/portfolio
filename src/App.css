@@ -7,9 +7,9 @@ html {
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif;
   background-color: #ffffff;
-  color: #333333;
+  color: #333333; */
 }
 
 .nav-bar {
@@ -55,13 +55,15 @@ body {
 }
 
 a:hover svg {
-  color: #333333;
+  color: #5e5e5e;
   transform: scale(1.1);
   transition: all 0.3s ease;
 }
 
 .header {
   background: url("./assets/background.jpg") center/cover no-repeat;
+  /* background: url("./assets/beige-comb-painting-texture-background.jpg") */
+  /* center/cover no-repeat; */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -103,23 +105,22 @@ a:hover svg {
   top: 2rem;
   right: 3rem;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .header .locale button {
-  background-color: white;
-  border: 1px solid white;
-  font-weight: bold;
-  color: #ff8965;
+  background-color: #7a8b89;
+  border: none;
+  color: white;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .header .locale button:hover {
-  color: #ff8965;
+  background-color: #5e5e5e;
 }
 
 .header .locale button:disabled {
@@ -127,8 +128,12 @@ a:hover svg {
 }
 
 .section-container {
-  padding: 6rem 8rem;
+  padding: 6rem 0;
   min-height: 100vh;
+}
+
+.about-me-section {
+  background-color: white;
 }
 
 .project-details .container {
@@ -185,6 +190,10 @@ a:hover svg {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+.experience-section {
+  background-color: white;
+}
+
 .contact-section span {
   color: #ff8965;
   font-size: 1rem;
@@ -207,20 +216,20 @@ a:hover svg {
 } */
 
 .footer {
+  /* background-color: #c9d6cc; */
+  color: #5e5e5e;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2;
   bottom: 0;
-  background-color: #333333;
-  color: white;
-  padding: 1rem 0;
+  padding: 4rem 2rem;
   height: 180px;
 }
 
 .footer span {
-  color: #ff8965;
+  color: #5e5e5e;
   font-size: 1rem;
   font-weight: 800;
 }
@@ -230,7 +239,7 @@ a:hover svg {
 }
 
 .footer a:hover svg {
-  color: #ffffff;
+  color: #5e5e5e;
 }
 
 .footer .link-container {
@@ -265,7 +274,7 @@ a:hover svg {
   }
 
   .section-container {
-    padding: 3rem 2rem;
+    padding: 3rem 0;
     min-height: 80vh;
     background-size: cover;
   }

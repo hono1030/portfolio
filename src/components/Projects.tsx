@@ -48,8 +48,8 @@ const Projects: React.FC<Props> = ({
     <>
       <Container
         maxWidth="lg"
-        className="section-container projects-section"
         sx={{
+          background: "secondary.main",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

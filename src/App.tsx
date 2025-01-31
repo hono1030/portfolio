@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState } from "react";
 import Projects from "./components/Projects";
-import Hero from "./components/Hero";
 import { Project } from "./types/types";
 import { getProjects } from "./data/projects";
 import profileImage from "./assets/notion-avatar-1737895410401.png";
@@ -27,18 +26,18 @@ const lngs: Record<string, { nativeName: string }> = {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#E98074", // Muted Coral (buttons, interactive elements)
+      main: "#7A8B89", // Muted Olive Green for accents
     },
     secondary: {
-      main: "#E85A4F", // Deep Coral (CTAs, hover effects)
+      main: "#EAD7D1", // Muted Blush for secondary highlights
     },
     background: {
-      default: "#EAE7DC", // Warm White (Main background)
-      paper: "#D8C3A5", // Beige Sand (Secondary backgrounds)
+      default: "#F7F4EF", // Warm White for the main background
+      // paper: "#C9D6CC", // Soft Sage for alternate sections
     },
     text: {
-      primary: "#8E8D8A", // Muted Gray (Main text)
-      secondary: "#5E5C58", // Darker gray for subtle contrast
+      primary: "#5E5E5E", // Charcoal Gray for main text
+      secondary: "#7A8B89", // Olive for subtle text accents
     },
   },
   typography: {
@@ -141,7 +140,7 @@ function App() {
         <Typography
           variant="h2"
           sx={{
-            fontSize: { xs: "1.3rem", md: "1.8rem" },
+            fontSize: { xs: "1.5rem", md: "2.0rem" },
             color: "text.secondary",
             maxWidth: "70%",
             animation: "fadeIn 1s ease-in-out",
@@ -217,57 +216,56 @@ function App() {
       </header>
 
       {/* About Me Section */}
-      <Container
-        maxWidth="md"
-        id="about-me"
-        className="about-me-section section-container"
-        sx={{
-          flexDirection: { xs: "column", md: "row" },
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "3rem",
-          padding: { xs: "3rem 2rem", md: "6rem 3rem" },
-          textAlign: { xs: "center", md: "left" },
-        }}
-      >
-        <Avatar
-          alt="Honoka Noguchi"
-          src={profileImage}
+      <section id="about-me" className="about-me-section section-container">
+        <Container
           sx={{
-            width: { xs: 120, md: 160 },
-            height: { xs: 120, md: 160 },
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            flexDirection: { xs: "column", md: "row" },
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "3rem",
+            padding: { xs: "3rem 2rem", md: "6rem 3rem" },
+            textAlign: { xs: "center", md: "left" },
           }}
-        />
-        <Box>
-          <Typography
-            variant="h4"
+        >
+          <Avatar
+            alt="Honoka Noguchi"
+            src={profileImage}
             sx={{
-              fontSize: { xs: "2rem", md: "2.5rem" },
-              textAlign: "center",
-              marginBottom: "1rem",
+              width: { xs: 120, md: 160 },
+              height: { xs: 120, md: 160 },
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             }}
-            gutterBottom
-          >
-            About Me
-          </Typography>
-          <Typography variant="body1" sx={{ my: 2 }}>
-            {t("about-me.introduction")}
-          </Typography>
-          <Typography variant="body1" gutterBottom sx={{ mt: 1.5 }}>
-            <strong>{t("about-me.technologies")}</strong>{" "}
-            {t("about-me.technologies-list")}
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            <strong>{t("about-me.languages")}</strong>{" "}
-            {t("about-me.language-level")}
-          </Typography>
-        </Box>
-      </Container>
+          />
+          <Box>
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: { xs: "2rem", md: "2.5rem" },
+                textAlign: "center",
+                marginBottom: "1rem",
+              }}
+              gutterBottom
+            >
+              About Me
+            </Typography>
+            <Typography variant="body1" sx={{ my: 2 }}>
+              {t("about-me.introduction")}
+            </Typography>
+            <Typography variant="body1" gutterBottom sx={{ mt: 1.5 }}>
+              <strong>{t("about-me.technologies")}</strong>{" "}
+              {t("about-me.technologies-list")}
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              <strong>{t("about-me.languages")}</strong>{" "}
+              {t("about-me.language-level")}
+            </Typography>
+          </Box>
+        </Container>
+      </section>
 
       {/* Projects Section */}
-      <div id="projects">
+      <section id="projects" className="section-container projects-section">
         <Projects
           projects={projects}
           selectedProject={selectedProject}
@@ -277,34 +275,34 @@ function App() {
           onClose={handleClose}
           setFeaturedImage={setFeaturedImage}
         />
-      </div>
+      </section>
 
       {/* Experience */}
-      <Container
-        maxWidth="lg"
-        className="section-container experience-section"
-        id="experience"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 2,
-          py: 4,
-        }}
-      >
-        <Typography
-          variant="h3"
-          className="section-title"
+      <section id="experience" className="section-container experience-section">
+        <Container
+          maxWidth="lg"
           sx={{
-            my: 6,
-            fontWeight: 600,
-            textAlign: "center",
-            fontSize: { xs: "2rem", md: "3rem" },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 2,
+            py: 4,
           }}
         >
-          Experience
-        </Typography>
-      </Container>
+          <Typography
+            variant="h3"
+            className="section-title"
+            sx={{
+              my: 6,
+              fontWeight: 600,
+              textAlign: "center",
+              fontSize: { xs: "2rem", md: "3rem" },
+            }}
+          >
+            Experience
+          </Typography>
+        </Container>
+      </section>
 
       {/* Contact */}
       {/* <Container
