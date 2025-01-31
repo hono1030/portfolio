@@ -26,10 +26,10 @@ const lngs: Record<string, { nativeName: string }> = {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#7A8B89", // Muted Olive Green for accents
+      main: "#7a8b7d", // Muted Olive Green for accents
     },
     secondary: {
-      main: "#EAD7D1", // Muted Blush for secondary highlights
+      main: "#B38B6D", // Muted Blush for secondary highlights
     },
     background: {
       default: "#F7F4EF", // Warm White for the main background
@@ -43,9 +43,9 @@ const theme = createTheme({
   typography: {
     // fontFamily: "'Roboto', sans-serif",
     fontFamily: "'Poppins', 'Inter', 'sans-serif'",
-    h1: { fontSize: "3rem", fontWeight: 700 },
+    // h1: { fontSize: "3rem", fontWeight: 700 },
     // h2: { fontSize: "1.5rem", color: "#555" },
-    body1: { fontSize: "1rem", lineHeight: 1.6 },
+    // body1: { fontSize: "1rem", lineHeight: 1.6 },
   },
 });
 
@@ -140,7 +140,7 @@ function App() {
         <Typography
           variant="h2"
           sx={{
-            fontSize: { xs: "1.5rem", md: "2.0rem" },
+            fontSize: { xs: "1.4rem", md: "1.7rem" },
             color: "text.secondary",
             maxWidth: "70%",
             animation: "fadeIn 1s ease-in-out",
@@ -157,10 +157,10 @@ function App() {
             href="https://www.linkedin.com/in/honoka-noguchi/"
             rel="noopener noreferrer"
           >
-            <LinkedInIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
+            <LinkedInIcon color="secondary" fontSize="large" sx={{ mx: 1.5 }} />
           </a>
           <a href="https://github.com/hono1030" rel="noopener noreferrer">
-            <GitHubIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
+            <GitHubIcon color="secondary" fontSize="large" sx={{ mx: 1.5 }} />
           </a>
         </div>
         <div className="btn-container">
@@ -373,19 +373,19 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LinkedInIcon color="primary" fontSize="large" />
+              <LinkedInIcon color="secondary" fontSize="large" />
             </a>
             <a
               href="https://github.com/hono1030"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <GitHubIcon color="primary" fontSize="large" />
+              <GitHubIcon color="secondary" fontSize="large" />
             </a>
           </div>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
-            <EmailIcon color="primary" fontSize="large" />
-            <span>honoka.n1030@gmail.com</span>
+            <EmailIcon color="secondary" fontSize="large" />
+            <span style={{ color: "#B38B6D" }}>honoka.n1030@gmail.com</span>
           </Box>
         </Box>
       </footer>

@@ -174,12 +174,7 @@ const Projects: React.FC<Props> = ({
                   ))}
                 </ul>
 
-                <Typography
-                  variant="body1"
-                  color="text.secondary"
-                  sx={{ my: 2 }}
-                  gutterBottom
-                >
+                <Typography variant="body1" sx={{ my: 2 }} gutterBottom>
                   <strong>{t("project-details.techstack")}</strong>{" "}
                   {selectedProject.techStack}
                 </Typography>
@@ -187,10 +182,10 @@ const Projects: React.FC<Props> = ({
                   <Button
                     href={selectedProject.site}
                     target="_blank"
-                    color="primary"
+                    color="secondary"
                     sx={{ mb: 3, mr: 3, pl: 0 }}
                   >
-                    <LanguageIcon color="primary" sx={{ mr: 0.5 }} />
+                    <LanguageIcon color="secondary" sx={{ mr: 0.5 }} />
                     Site
                   </Button>
                 )}
@@ -199,32 +194,22 @@ const Projects: React.FC<Props> = ({
                   <Button
                     href={selectedProject.demo}
                     target="_blank"
-                    color="primary"
+                    color="secondary"
                     sx={{ mb: 3, mr: 3, pl: 0 }}
                   >
-                    <OndemandVideoIcon color="primary" sx={{ mr: 0.5 }} />
+                    <OndemandVideoIcon color="secondary" sx={{ mr: 0.5 }} />
                     Demo
                   </Button>
                 )}
-                {/* <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/nf6tw-EHCgg"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe> */}
 
                 {selectedProject.github && (
                   <Button
                     href={selectedProject.github}
                     target="_blank"
-                    color="primary"
+                    color="secondary"
                     sx={{ mb: 3, mr: 3, pl: 0 }}
                   >
-                    <GitHubIcon color="primary" sx={{ mr: 0.5 }} />
+                    <GitHubIcon color="secondary" sx={{ mr: 0.5 }} />
                     GitHub
                   </Button>
                 )}

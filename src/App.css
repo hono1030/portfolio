@@ -54,6 +54,10 @@ body {
   color: #ff8965;
 }
 
+a {
+  color: #d27a49;
+}
+
 a:hover svg {
   color: #5e5e5e;
   transform: scale(1.1);
@@ -83,7 +87,6 @@ a:hover svg {
 }
 
 .header h2 {
-  font-size: 1.5rem;
   color: #8e8d8a;
   margin-bottom: 1rem;
 }
@@ -109,7 +112,7 @@ a:hover svg {
 }
 
 .header .locale button {
-  background-color: #7a8b89;
+  background-color: #b38b6d;
   border: none;
   color: white;
   padding: 0.3rem 0.6rem;
@@ -192,12 +195,6 @@ a:hover svg {
 
 .experience-section {
   background-color: white;
-}
-
-.contact-section span {
-  color: #ff8965;
-  font-size: 1rem;
-  font-weight: 800;
 }
 
 /* .about-section .container {
