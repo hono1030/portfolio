@@ -1,13 +1,20 @@
 import "./App.css";
 import { useState } from "react";
 import Projects from "./components/Projects";
+import Hero from "./components/Hero";
 import { Project } from "./types/types";
 import { getProjects } from "./data/projects";
 import profileImage from "./assets/notion-avatar-1737895410401.png";
 import { useTranslation } from "react-i18next";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Avatar, Box, CssBaseline, Typography, Container } from "@mui/material";
-
+import {
+  Avatar,
+  Box,
+  CssBaseline,
+  Typography,
+  Container,
+  Button,
+} from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
@@ -20,17 +27,23 @@ const lngs: Record<string, { nativeName: string }> = {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#ff8965",
+      main: "#E98074", // Muted Coral (buttons, interactive elements)
     },
-    text: {
-      primary: "#333333",
+    secondary: {
+      main: "#E85A4F", // Deep Coral (CTAs, hover effects)
     },
     background: {
-      default: "#ffffff",
+      default: "#EAE7DC", // Warm White (Main background)
+      paper: "#D8C3A5", // Beige Sand (Secondary backgrounds)
+    },
+    text: {
+      primary: "#8E8D8A", // Muted Gray (Main text)
+      secondary: "#5E5C58", // Darker gray for subtle contrast
     },
   },
   typography: {
-    fontFamily: "'Roboto', sans-serif",
+    // fontFamily: "'Roboto', sans-serif",
+    fontFamily: "'Poppins', 'Inter', 'sans-serif'",
     h1: { fontSize: "3rem", fontWeight: 700 },
     // h2: { fontSize: "1.5rem", color: "#555" },
     body1: { fontSize: "1rem", lineHeight: 1.6 },
@@ -63,7 +76,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {/* Navigation */}
-      <nav className="nav-bar">
+      {/* <nav className="nav-bar">
         <div className="logo"></div>
         <Box sx={{ display: { xs: "none", md: "block" } }}>
           <ul>
@@ -93,16 +106,33 @@ function App() {
             </button>
           ))}
         </div>
-      </nav>
+      </nav> */}
 
-      {/* Header */}
+      {/* Hero section */}
       <header className="header" id="home">
+        <div className="locale">
+          {Object.keys(lngs).map((lng) => (
+            <button
+              type="submit"
+              key={lng}
+              onClick={() => i18n.changeLanguage(lng)}
+              disabled={i18n.resolvedLanguage === lng}
+            >
+              {lngs[lng].nativeName}
+            </button>
+          ))}
+        </div>
+
         <Typography
           variant="h1"
           sx={{
-            fontSize: { xs: "2rem", md: "3rem" },
-            textAlign: "center",
+            fontSize: { xs: "2.5rem", md: "4rem" },
             fontWeight: "bold",
+            animation: "fadeIn 1s ease-in-out",
+            "@keyframes fadeIn": {
+              "0%": { opacity: 0, transform: "translateY(20px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" },
+            },
           }}
           gutterBottom
         >
@@ -111,14 +141,19 @@ function App() {
         <Typography
           variant="h2"
           sx={{
-            fontSize: { xs: "1.2rem", md: "1.5rem" },
-            textAlign: "center",
+            fontSize: { xs: "1.3rem", md: "1.8rem" },
             color: "text.secondary",
+            maxWidth: "70%",
+            animation: "fadeIn 1s ease-in-out",
+            "@keyframes fadeIn": {
+              "0%": { opacity: 0, transform: "translateY(20px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" },
+            },
           }}
         >
           {t("home.engineer")}
         </Typography>
-        <div>
+        <div className="link">
           <a
             href="https://www.linkedin.com/in/honoka-noguchi/"
             rel="noopener noreferrer"
@@ -129,27 +164,79 @@ function App() {
             <GitHubIcon color="primary" fontSize="large" sx={{ mx: 1.5 }} />
           </a>
         </div>
+        <div className="btn-container">
+          <Button
+            variant="contained"
+            color="primary"
+            href="#about-me"
+            sx={{
+              mt: 4,
+              mx: 1,
+              fontSize: { xs: "0.8rem", md: "0.9rem" },
+              padding: "0.8rem 1.5rem",
+              borderRadius: 8,
+              transition: "transform 0.3s ease-in-out",
+              "&:hover": { transform: "scale(1.05)" },
+            }}
+          >
+            {t("layout.about-me")}
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            href="#projects"
+            sx={{
+              mt: 4,
+              mx: 1,
+              fontSize: { xs: "0.8rem", md: "0.9rem" },
+              padding: "0.8rem 1.5rem",
+              borderRadius: 8,
+              transition: "transform 0.3s ease-in-out",
+              "&:hover": { transform: "scale(1.05)" },
+            }}
+          >
+            {t("layout.projects")}
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            href="#experience"
+            sx={{
+              mt: 4,
+              mx: 1,
+              fontSize: { xs: "0.8rem", md: "0.9rem" },
+              padding: "0.8rem 1.5rem",
+              borderRadius: 8,
+              transition: "transform 0.3s ease-in-out",
+              "&:hover": { transform: "scale(1.05)" },
+            }}
+          >
+            {t("layout.experience")}
+          </Button>
+        </div>
       </header>
 
       {/* About Me Section */}
       <Container
         maxWidth="md"
-        className="about-me-section"
+        id="about-me"
+        className="about-me-section section-container"
         sx={{
           flexDirection: { xs: "column", md: "row" },
-          margin: "2rem auto",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: "2rem",
+          gap: "3rem",
+          padding: { xs: "3rem 2rem", md: "6rem 3rem" },
+          textAlign: { xs: "center", md: "left" },
         }}
       >
         <Avatar
           alt="Honoka Noguchi"
           src={profileImage}
           sx={{
-            width: 150,
-            height: 150,
+            width: { xs: 120, md: 160 },
+            height: { xs: 120, md: 160 },
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           }}
         />
@@ -157,7 +244,9 @@ function App() {
           <Typography
             variant="h4"
             sx={{
-              textAlign: { xs: "center", md: "left" },
+              fontSize: { xs: "2rem", md: "2.5rem" },
+              textAlign: "center",
+              marginBottom: "1rem",
             }}
             gutterBottom
           >

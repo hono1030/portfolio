@@ -79,7 +79,18 @@ const Projects: React.FC<Props> = ({
         >
           {projects.map((project, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card sx={{ maxWidth: 345, margin: "0 auto" }}>
+              <Card
+                sx={{
+                  width: 330,
+                  margin: "0 auto",
+                  transition:
+                    "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                    boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+                  },
+                }}
+              >
                 <CardMedia
                   component="img"
                   height="194"

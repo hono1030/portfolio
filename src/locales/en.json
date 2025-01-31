@@ -1,13 +1,12 @@
 {
   "layout": {
-    "home": "Home",
+    "about-me": "About me",
     "projects": "Projects",
-    "experience": "Experience",
-    "contact": "Contact"
+    "experience": "Experience"
   },
   "home": {
     "name": "Honoka Noguchi",
-    "engineer": "Software Engineer"
+    "engineer": "Software Engineer | Project Manager"
   },
   "about-me": {
     "introduction": "Hi, I’m Honoka, a frontend engineer with a background in sales and business development. My passion for solving problems and creating impactful digital experiences led me to transition into software development. I thrive on building intuitive, user-friendly applications that make a difference. Explore my projects, skills, and professional journey!",
