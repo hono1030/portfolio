@@ -3,7 +3,7 @@ import { useState } from "react";
 import Projects from "./components/Projects";
 import { Project } from "./types/types";
 import { getProjects } from "./data/projects";
-import profileImage from "./assets/notion-avatar-1737895410401.png";
+import profileImage from "/notion-avatar.png";
 import { useTranslation } from "react-i18next";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
@@ -29,23 +29,18 @@ const theme = createTheme({
       main: "#7a8b7d", // Muted Olive Green for accents
     },
     secondary: {
-      main: "#B38B6D", // Muted Blush for secondary highlights
+      main: "#B38B6D",
     },
     background: {
-      default: "#F7F4EF", // Warm White for the main background
-      // paper: "#C9D6CC", // Soft Sage for alternate sections
+      default: "#F7F4EF",
     },
     text: {
-      primary: "#5E5E5E", // Charcoal Gray for main text
-      secondary: "#7A8B89", // Olive for subtle text accents
+      primary: "#5E5E5E",
+      secondary: "#7A8B89",
     },
   },
   typography: {
-    // fontFamily: "'Roboto', sans-serif",
     fontFamily: "'Poppins', 'Inter', 'sans-serif'",
-    // h1: { fontSize: "3rem", fontWeight: 700 },
-    // h2: { fontSize: "1.5rem", color: "#555" },
-    // body1: { fontSize: "1rem", lineHeight: 1.6 },
   },
 });
 
@@ -217,6 +212,16 @@ function App() {
 
       {/* About Me Section */}
       <section id="about-me" className="about-me-section section-container">
+        <Typography
+          variant="h4"
+          sx={{
+            fontSize: { xs: "2rem", md: "2.5rem" },
+            textAlign: "center",
+          }}
+          gutterBottom
+        >
+          About Me
+        </Typography>
         <Container
           sx={{
             flexDirection: { xs: "column", md: "row" },
@@ -224,7 +229,8 @@ function App() {
             alignItems: "center",
             justifyContent: "center",
             gap: "3rem",
-            padding: { xs: "3rem 2rem", md: "6rem 3rem" },
+            width: "65%",
+            padding: { xs: "auto 2rem", md: "auto 3rem" },
             textAlign: { xs: "center", md: "left" },
           }}
         >
@@ -238,18 +244,7 @@ function App() {
             }}
           />
           <Box>
-            <Typography
-              variant="h4"
-              sx={{
-                fontSize: { xs: "2rem", md: "2.5rem" },
-                textAlign: "center",
-                marginBottom: "1rem",
-              }}
-              gutterBottom
-            >
-              About Me
-            </Typography>
-            <Typography variant="body1" sx={{ my: 2 }}>
+            <Typography variant="body1" sx={{ my: 4 }}>
               {t("about-me.introduction")}
             </Typography>
             <Typography variant="body1" gutterBottom sx={{ mt: 1.5 }}>
@@ -303,49 +298,6 @@ function App() {
           </Typography>
         </Container>
       </section>
-
-      {/* Contact */}
-      {/* <Container
-        maxWidth="lg"
-        className="section-container contact-section"
-        id="contact"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 2,
-          py: 4,
-        }}
-      >
-        <h2 className="section-title">Contact</h2>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 4,
-          }}
-        >
-          <a
-            href="https://www.linkedin.com/in/honoka-noguchi/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedInIcon color="primary" fontSize="large" />
-          </a>
-          <a
-            href="https://github.com/hono1030"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GitHubIcon color="primary" fontSize="large" />
-          </a>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <EmailIcon color="primary" fontSize="large" />
-            <span>honoka.n1030@gmail.com</span>
-          </Box>
-        </Box>
-      </Container> */}
 
       {/* Footer */}
       <footer className="footer" id="contact">
