@@ -69,38 +69,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* Navigation */}
-      {/* <nav className="nav-bar">
-        <div className="logo"></div>
-        <Box sx={{ display: { xs: "none", md: "block" } }}>
-          <ul>
-            <li>
-              <a href="#home">{t("layout.home")}</a>
-            </li>
-            <li>
-              <a href="#projects">{t("layout.projects")}</a>
-            </li>
-            <li>
-              <a href="#experience">{t("layout.experience")}</a>
-            </li>
-            <li>
-              <a href="#contact">{t("layout.contact")}</a>
-            </li>
-          </ul>
-        </Box>
-        <div className="locale">
-          {Object.keys(lngs).map((lng) => (
-            <button
-              type="submit"
-              key={lng}
-              onClick={() => i18n.changeLanguage(lng)}
-              disabled={i18n.resolvedLanguage === lng}
-            >
-              {lngs[lng].nativeName}
-            </button>
-          ))}
-        </div>
-      </nav> */}
 
       {/* Hero section */}
       <header className="header" id="home">
