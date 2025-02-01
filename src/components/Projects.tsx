@@ -53,8 +53,6 @@ const Projects: React.FC<Props> = ({
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 2,
-          py: 4,
         }}
       >
         <Typography
@@ -62,8 +60,8 @@ const Projects: React.FC<Props> = ({
           className="section-title"
           sx={{
             fontSize: { xs: "2rem", md: "3rem" },
-            my: 6,
             fontWeight: 600,
+            marginBottom: { xs: "3rem", ms: "5rem" },
           }}
         >
           Projects

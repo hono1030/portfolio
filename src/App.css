@@ -9,47 +9,6 @@ body {
   margin: 0;
 }
 
-.nav-bar {
-  display: flex;
-  background-color: #ffffff;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  padding: 1.5rem 5rem;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-bar .logo {
-  font-weight: bold;
-}
-
-.nav-bar ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex-grow: 1;
-  gap: 4rem;
-}
-
-.nav-bar ul li {
-  display: inline-block;
-  font-weight: bold;
-}
-
-.nav-bar ul li a {
-  text-decoration: none;
-  color: #333333;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-.nav-bar ul li a:hover {
-  color: #ff8965;
-}
-
 a {
   color: #d27a49;
 }
@@ -125,8 +84,13 @@ a:hover svg {
 }
 
 .section-container {
-  padding: 6rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .about-me-section {
@@ -227,9 +191,9 @@ a:hover svg {
     font-size: 0.9rem;
   }
 
-  .nav-bar {
+  /* .nav-bar {
     padding: 1rem 2rem;
-  }
+  } */
 
   .header {
     min-height: 80vh;
@@ -241,6 +205,10 @@ a:hover svg {
   }
   .header h2 {
     font-size: 1.4rem;
+  }
+
+  .header .btn-container {
+    gap: 0.3rem;
   }
 
   .about-me-section strong {
@@ -287,13 +255,13 @@ a:hover svg {
 
 /* ipad view */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  .nav-bar {
+  /* .nav-bar {
     padding: 1rem 3rem;
   }
 
   .nav-bar ul {
     gap: 2rem;
-  }
+  } */
 
   .header {
     min-height: 900vh;

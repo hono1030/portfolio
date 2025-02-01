@@ -134,8 +134,10 @@ function App() {
             sx={{
               mt: 4,
               mx: 1,
+              width: { xs: "6.5rem", md: "8rem" },
+              height: "auto",
               fontSize: { xs: "0.8rem", md: "0.9rem" },
-              padding: "0.8rem 1.5rem",
+              padding: { xs: "0.6rem 0.8rem", md: "0.8rem 1.5rem" },
               borderRadius: 8,
               transition: "transform 0.3s ease-in-out",
               "&:hover": { transform: "scale(1.05)" },
@@ -150,8 +152,10 @@ function App() {
             sx={{
               mt: 4,
               mx: 1,
+              width: { xs: "6.5rem", md: "8rem" },
+              height: "auto",
               fontSize: { xs: "0.8rem", md: "0.9rem" },
-              padding: "0.8rem 1.5rem",
+              padding: { xs: "0.6rem 0.8rem", md: "0.8rem 1.5rem" },
               borderRadius: 8,
               transition: "transform 0.3s ease-in-out",
               "&:hover": { transform: "scale(1.05)" },
@@ -166,8 +170,10 @@ function App() {
             sx={{
               mt: 4,
               mx: 1,
+              width: { xs: "6.5rem", md: "8rem" },
+              height: "auto",
               fontSize: { xs: "0.8rem", md: "0.9rem" },
-              padding: "0.8rem 1.5rem",
+              padding: { xs: "0.6rem 0.8rem", md: "0.8rem 1.5rem" },
               borderRadius: 8,
               transition: "transform 0.3s ease-in-out",
               "&:hover": { transform: "scale(1.05)" },
@@ -185,6 +191,7 @@ function App() {
           sx={{
             fontSize: { xs: "2rem", md: "2.5rem" },
             textAlign: "center",
+            marginBottom: "2rem",
           }}
           gutterBottom
         >
@@ -196,9 +203,8 @@ function App() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: "3rem",
-            width: "65%",
-            padding: { xs: "auto 2rem", md: "auto 3rem" },
+            gap: { xs: "1rem", md: "3rem" },
+            width: { xs: "90%", md: "65%" },
             textAlign: { xs: "center", md: "left" },
           }}
         >
@@ -248,15 +254,13 @@ function App() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 2,
-            py: 4,
           }}
         >
           <Typography
             variant="h3"
             className="section-title"
             sx={{
-              my: 6,
+              marginBottom: { xs: "3rem", ms: "5rem" },
               fontWeight: 600,
               textAlign: "center",
               fontSize: { xs: "2rem", md: "3rem" },
