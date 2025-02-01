@@ -1,5 +1,5 @@
 import { TFunction } from "i18next";
-import { Project } from "../types/types"; // Ensure you import the Project type
+import { Project } from "../types/types";
 import mugi_img from "../assets/mugi.png";
 import mugi_1 from "../assets/mugi_1.png";
 import mugi_2 from "../assets/mugi_2.png";

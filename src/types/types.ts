@@ -8,3 +8,13 @@ export interface Project {
   demo?: string;
   github: string;
 }
+
+export interface Experience {
+  name: string;
+  role: string;
+  description: string;
+  logo: string;
+  techStack: string[];
+  site: string;
+  github: string;
+}

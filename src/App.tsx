@@ -1,19 +1,12 @@
 import "./App.css";
-import { useState } from "react";
 import Projects from "./components/Projects";
+import AboutMe from "./components/AboutMe";
+import Experience from "./components/Experience";
 import { Project } from "./types/types";
-import { getProjects } from "./data/projects";
-import profileImage from "/notion-avatar.png";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import {
-  Avatar,
-  Box,
-  CssBaseline,
-  Typography,
-  Container,
-  Button,
-} from "@mui/material";
+import { Box, CssBaseline, Typography, Button } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
@@ -26,7 +19,7 @@ const lngs: Record<string, { nativeName: string }> = {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#7a8b7d", // Muted Olive Green for accents
+      main: "#7a8b7d",
     },
     secondary: {
       main: "#B38B6D",
@@ -40,7 +33,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Poppins', 'Inter', 'sans-serif'",
+    fontFamily: "'Roboto', sans-serif",
   },
 });
 
@@ -50,9 +43,6 @@ function App() {
   const [open, setOpen] = useState<boolean>(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [featuredImage, setFeaturedImage] = useState<string | null>(null);
-
-  // Get localized projects
-  const projects: Project[] = getProjects(t);
 
   const handleOpen = (project: Project) => {
     setSelectedProject(project);
@@ -186,57 +176,12 @@ function App() {
 
       {/* About Me Section */}
       <section id="about-me" className="about-me-section section-container">
-        <Typography
-          variant="h4"
-          sx={{
-            fontSize: { xs: "2rem", md: "2.5rem" },
-            textAlign: "center",
-            marginBottom: "2rem",
-          }}
-          gutterBottom
-        >
-          About Me
-        </Typography>
-        <Container
-          sx={{
-            flexDirection: { xs: "column", md: "row" },
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: { xs: "1rem", md: "3rem" },
-            width: { xs: "90%", md: "65%" },
-            textAlign: { xs: "center", md: "left" },
-          }}
-        >
-          <Avatar
-            alt="Honoka Noguchi"
-            src={profileImage}
-            sx={{
-              width: { xs: 120, md: 160 },
-              height: { xs: 120, md: 160 },
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-            }}
-          />
-          <Box>
-            <Typography variant="body1" sx={{ my: 4 }}>
-              {t("about-me.introduction")}
-            </Typography>
-            <Typography variant="body1" gutterBottom sx={{ mt: 1.5 }}>
-              <strong>{t("about-me.technologies")}</strong>{" "}
-              {t("about-me.technologies-list")}
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              <strong>{t("about-me.languages")}</strong>{" "}
-              {t("about-me.language-level")}
-            </Typography>
-          </Box>
-        </Container>
+        <AboutMe />
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="section-container projects-section">
         <Projects
-          projects={projects}
           selectedProject={selectedProject}
           featuredImage={featuredImage}
           open={open}
@@ -248,27 +193,7 @@ function App() {
 
       {/* Experience */}
       <section id="experience" className="section-container experience-section">
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            variant="h3"
-            className="section-title"
-            sx={{
-              marginBottom: { xs: "3rem", ms: "5rem" },
-              fontWeight: 600,
-              textAlign: "center",
-              fontSize: { xs: "2rem", md: "3rem" },
-            }}
-          >
-            Experience
-          </Typography>
-        </Container>
+        <Experience />
       </section>
 
       {/* Footer */}

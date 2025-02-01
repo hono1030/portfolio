@@ -1,5 +1,6 @@
 import "../App.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { getProjects } from "../data/projects";
 import { Project } from "../types/types";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
@@ -23,7 +24,6 @@ import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import LanguageIcon from "@mui/icons-material/Language";
 
 type Props = {
-  projects: Project[];
   selectedProject: Project | null;
   featuredImage: string | null;
   open: boolean;
@@ -33,7 +33,6 @@ type Props = {
 };
 
 const Projects: React.FC<Props> = ({
-  projects,
   selectedProject,
   featuredImage,
   open,
@@ -44,6 +43,10 @@ const Projects: React.FC<Props> = ({
   const themForMedia = useTheme();
   const isMobile = useMediaQuery(themForMedia.breakpoints.down("sm"));
   const { t } = useTranslation();
+
+  // Get localized projects
+  const projects: Project[] = getProjects(t);
+
   return (
     <>
       <Container
@@ -61,7 +64,7 @@ const Projects: React.FC<Props> = ({
           sx={{
             fontSize: { xs: "2rem", md: "3rem" },
             fontWeight: 600,
-            marginBottom: { xs: "3rem", ms: "5rem" },
+            marginBottom: { xs: "3rem", ms: "8rem" },
           }}
         >
           Projects
@@ -78,6 +81,7 @@ const Projects: React.FC<Props> = ({
           {projects.map((project, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
+                onClick={() => onOpen(project)}
                 sx={{
                   width: 330,
                   margin: "0 auto",
@@ -184,7 +188,7 @@ const Projects: React.FC<Props> = ({
                     sx={{ mb: 3, mr: 3, pl: 0 }}
                   >
                     <LanguageIcon color="secondary" sx={{ mr: 0.5 }} />
-                    Site
+                    Website
                   </Button>
                 )}
 
@@ -223,7 +227,7 @@ const Projects: React.FC<Props> = ({
                       style={{
                         border:
                           featuredImage === image
-                            ? "2px solid #ff8965"
+                            ? "2px solid #B38B6D"
                             : "none",
                       }}
                       onClick={() => setFeaturedImage(image)}
