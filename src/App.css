@@ -30,7 +30,7 @@ a:hover svg {
   overflow: hidden;
 }
 
-.hero-bg {
+.header .hero-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,21 +39,6 @@ a:hover svg {
   object-fit: cover;
   z-index: -1;
 }
-
-/* .header {
-  background: url("./assets/background.jpg") center/cover no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-} */
 
 .header h1 {
   font-size: 4rem;
@@ -214,8 +199,6 @@ a:hover svg {
 
   .header {
     min-height: 80vh;
-    /* background-attachment: scroll;
-    background-size: contain; */
   }
 
   .header h1 {
@@ -273,14 +256,6 @@ a:hover svg {
 
 /* ipad view */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* .nav-bar {
-    padding: 1rem 3rem;
-  }
-
-  .nav-bar ul {
-    gap: 2rem;
-  } */
-
   .header {
     min-height: 900vh;
   }
