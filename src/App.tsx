@@ -2,6 +2,7 @@ import "./App.css";
 import Projects from "./components/Projects";
 import AboutMe from "./components/AboutMe";
 import Experience from "./components/Experience";
+import background_img from "./assets/background.jpg";
 import { Project } from "./types/types";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -62,6 +63,7 @@ function App() {
 
       {/* Hero section */}
       <header className="header" id="home">
+        <img src={background_img} className="hero-bg" alt="Background" />
         <div className="locale">
           {Object.keys(lngs).map((lng) => (
             <button
