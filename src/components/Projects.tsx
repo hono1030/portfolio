@@ -64,7 +64,7 @@ const Projects: React.FC<Props> = ({
           sx={{
             fontSize: { xs: "2rem", md: "3rem" },
             fontWeight: 600,
-            marginBottom: { xs: "3rem", ms: "8rem" },
+            marginBottom: { xs: "3rem", ms: "5rem" },
           }}
         >
           Projects
@@ -107,9 +107,6 @@ const Projects: React.FC<Props> = ({
                   <Typography variant="h6" component="div">
                     {project.name}
                   </Typography>
-                  {/* <Typography variant="body2" color="text.secondary">
-                    {project.name}
-                  </Typography> */}
                 </CardContent>
                 <CardActions
                   sx={{

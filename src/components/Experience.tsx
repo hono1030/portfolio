@@ -12,6 +12,7 @@ export default function Experience() {
     <>
       <Container
         maxWidth="lg"
+        disableGutters
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -24,14 +25,14 @@ export default function Experience() {
           sx={{
             fontSize: { xs: "2rem", md: "3rem" },
             fontWeight: 600,
-            marginBottom: { xs: "2rem", sm: "7rem" },
+            marginBottom: { xs: "2rem", md: "5rem" },
           }}
         >
           Experience
         </Typography>
         <Grid
           container
-          spacing={{ xs: 0, md: 4 }}
+          spacing={{ xs: 0, md: 0 }}
           sx={{
             justifyContent: "center",
             alignItems: "center",
@@ -56,7 +57,7 @@ export default function Experience() {
                 padding: "2rem",
                 borderRadius: "10px",
                 boxShadow: "0px 4px 10px rgba(0,0,0,0.05)",
-                mx: { xs: "0rem", sm: "2rem" },
+                mx: { xs: "0rem", md: "2rem" },
                 maxWidth: "100%",
                 marginBottom: "2.5rem",
               }}
@@ -82,8 +83,17 @@ export default function Experience() {
                 />
 
                 {/* Name and Role */}
-                <Box>
-                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                <Box
+                  sx={{
+                    textAlign: "start",
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: 600,
+                    }}
+                  >
                     {list.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
