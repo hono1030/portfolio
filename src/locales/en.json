@@ -53,6 +53,9 @@
   "experience": {
     "find-a-doc": {
       "description": "Find a Doc, Japan helps people in Japan access healthcare services in their preferred language by providing free, multilingual health information."
+    },
+    "sustainability": {
+      "description": "Sustainability Page is a centralized platform that helps businesses manage and communicate their sustainability and compliance efforts. It enables organizations to showcase their progress, build stakeholder trust, and stay aligned with evolving expectations in a transparent and effective way."
     }
   }
 }
